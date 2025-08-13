@@ -26,9 +26,19 @@ let books = [];
         <span><strong>Author Name:</strong> ${book.authorName}||</span>
         <span><strong>Book Description:</strong> ${book.bookDescription}||</span>
         <span><strong>No. of Pages:</strong> ${book.pagesNumber} page(s)</span><br>
-        <button onclick="editbook(${index})">Edit</button><hr>`
+        <button onclick="editbook(${index})">Edit</button>||
+        <button onclick="deletebook(${index})">Delete</button><hr>`
     );
     document.getElementById('books').innerHTML = booksDiv.join('');
+}
+
+function deletebook(id){
+    console.log('delete Function')
+    // const newbooklist=books.filter((book,ind) => ind !== id )
+    // console.log('New List', newbooklist)
+    books.splice(id, 1); // Remove old entry
+    showbooks(); // Refresh list
+    
 }
 
 function editbook(index) {
